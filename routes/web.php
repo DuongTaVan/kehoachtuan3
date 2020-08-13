@@ -37,10 +37,10 @@ Route::group(['prefix'=>'admin','middleware'=>'checkLogin'],function(){
         //list user
         Route::get('','RolePermission\AdminController@getIndex')->name('user.list')->middleware('checkAcl:user-list');
         //create user
-        Route::get('create','RolePermission\AdminController@create')->name('user.add')->middleware('checkAcl:user-add');;
-        Route::post('create','RolePermission\AdminController@store')->name('user.postadd')->middleware('checkAcl:user-add');;
-        Route::get('edit/{id}','RolePermission\AdminController@edit')->name('user.edit')->middleware('checkAcl:user-edit');;
-        Route::post('postedit/{id}','RolePermission\AdminController@postedit')->name('user.postedit')->middleware('checkAcl:user-edit');;
+        Route::get('create','RolePermission\AdminController@create')->name('user.add')->middleware('checkAcl:user-add');
+        Route::post('create','RolePermission\AdminController@store')->name('user.postadd')->middleware('checkAcl:user-add');
+        Route::get('edit/{id}','RolePermission\AdminController@edit')->name('user.edit')->middleware('checkAcl:user-edit');
+        Route::post('postedit/{id}','RolePermission\AdminController@postedit')->name('user.postedit')->middleware('checkAcl:user-edit');
         Route::get('delete/{id}','RolePermission\AdminController@delete')->name('user.delete')->middleware('checkAcl:user-delete');
     });
     //Role
@@ -48,11 +48,11 @@ Route::group(['prefix'=>'admin','middleware'=>'checkLogin'],function(){
         //list user
         Route::get('','RolePermission\RoleController@getIndex')->name('role.list')->middleware('checkAcl:role-list');
         //create user
-        Route::get('create','RolePermission\RoleController@create')->name('role.add')->middleware('checkAcl:role-add');;
-        Route::post('create','RolePermission\RoleController@store')->name('role.postadd')->middleware('checkAcl:role-add');;
+        Route::get('create','RolePermission\RoleController@create')->name('role.add')->middleware('checkAcl:role-add');
+        Route::post('create','RolePermission\RoleController@store')->name('role.postadd')->middleware('checkAcl:role-add');
         Route::get('edit/{id}','RolePermission\RoleController@edit')->name('role.edit')->middleware('checkAcl:role-edit');
-        Route::post('postedit/{id}','RolePermission\RoleController@postedit')->name('role.postedit')->middleware('checkAcl:role-edit');;
-        Route::get('delete/{id}','RolePermission\RoleController@delete')->name('role.delete')->middleware('checkAcl:role-delete')->middleware('checkAcl:role-delete');
+        Route::post('postedit/{id}','RolePermission\RoleController@postedit')->name('role.postedit')->middleware('checkAcl:role-edit');
+        Route::get('delete/{id}','RolePermission\RoleController@delete')->name('role.delete')->middleware('checkAcl:role-delete');
     });
     //Permission
     Route::group(['prefix'=>'permission','middleware'=>'checkAcl:permission'],function(){
