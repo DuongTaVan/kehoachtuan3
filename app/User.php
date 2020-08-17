@@ -39,4 +39,16 @@ class User extends Authenticatable
     public function role(){
         return $this->belongsToMany('App\Models\Role','App\Models\Role_admin','admin_id', 'role_id');
     }
+    public function  Check_Permissions($checkPermission){
+        $roles = auth()->user()->role;
+        //dd($roles);
+        foreach ($roles as $role){
+            $permissions = $role->permission;
+            //dd($permissions);
+            if($permissions->contains('name',$checkPermission)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

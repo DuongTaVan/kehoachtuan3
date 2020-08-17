@@ -28,14 +28,14 @@ class LoginRequest extends FormRequest
             'password'=>'required|min:5'
         ];
     }
-    // public function messages()
-    // {
-    //     return [
-    //         'email.required'=>'Email không được để trống!',
-    //         'email.email'=>'Email không đúng!',
-    //         'email.min'=>'Email phải có ít nhất 5 kí tự!',
-    //         'password.required'=>'password không được để trống!',
-    //         'password.min'=>'password phải có ít nhất 5 kí tự!',   
-    //     ];
-    // }
+     public function messages()
+     {
+         return [
+             'email.required'=>'Email không được để trống!',
+             'email.email'=>'Email không đúng!',
+             'email.min'=>'Email phải có ít nhất 5 kí tự!',
+             'password.required'=>'password không được để trống!',
+             'password.min'=>'password phải có ít nhất 5 kí tự!',
+         ];
+     }
 }

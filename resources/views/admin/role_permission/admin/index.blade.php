@@ -1,7 +1,6 @@
 @extends('layouts.app_master_admin')
 @section('content')
 
-  
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -16,10 +15,11 @@
       <!-- Default box -->
       <div class="box">
         <div class="box-header width-border">
+            @can('user-add')
         	<div class="box-header">
         		<h3 class="box-title"><a href="{{route('user.add')}}" class="btn btn-primary">Thêm mới <i class="fa fa-plus"></i></a></h3>
         	</div>
-        
+            @endcan
 	        <div class="box-body">
 	        	<div class="col-md-12">
 	          		<table class="table">
@@ -37,9 +37,13 @@
 	                  <td>{{$admin->email}}</td>
                       <td>{{$admin->created_at}}</td>
 	                  <td>
+                          @can('user-edit')
                       <a href="{{route('user.edit',$admin->id)}}" class="btn btn-xs btn-primary"><i class="fa fa-pencil">Edit</i></a>
-                      <a href="{{route('user.delete',$admin->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash">Delete</i></a> 
-                    </td>
+                         @endcan
+                          @can('user-delete')
+                      <a href="{{route('user.delete',$admin->id)}}" class="btn btn-xs btn-danger"><i class="fa fa-trash">Delete</i></a>
+                              @endcan
+                      </td>
 	                
                   @endforeach
                   </tr>
@@ -60,4 +64,3 @@
 
 
 @endsection
- 

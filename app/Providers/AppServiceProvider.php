@@ -33,8 +33,7 @@ class AppServiceProvider extends ServiceProvider
                 //dd($listRolesadmin);
                 view()->share('listRolesadmin',$listRolesadmin);
             }else {
-                // $view->with('currentUser', null);
-                dd(1);
+                \redirect()->route('admin.account.index');
             }
         });
     }

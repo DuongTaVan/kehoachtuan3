@@ -17,7 +17,7 @@ class CheckPermission
      */
     public function handle($request, Closure $next, $permission = 'null')
     {
-     //dd($permission);
+        //dd($permission);
         $id = Auth::user()->id;
         //dd($id);
         $listRolesadmin = User::find($id)->role()->select('roles.id')->pluck('id')->toArray();
@@ -36,7 +36,7 @@ class CheckPermission
         //kiem tra user co vao dc man hinh khong?
         if($listRoleofPermission->contains($checkPermission)){
             //dd(1);
-            return $next($request);        
+            return $next($request);
         }
         //dd($CheckPermission);
         //dd($listRolesadmin);

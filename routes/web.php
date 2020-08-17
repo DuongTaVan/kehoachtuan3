@@ -25,7 +25,7 @@ Route::group(['prefix'=>'account'],function(){
 Route::group(['prefix'=>'admin','middleware'=>'checkLogin'],function(){
     Route::group(['prefix'=>'category'], function(){
         Route::get('','Admin\CategoryController@index')->name('admin.category.index');
-        Route::get('create','Admin\CategoryController@create')->name('admin.category.create');
+        Route::get('create','Admin\CategoryController@create')->name('admin.category.create')->middleware('checkAcl:add-category');
         Route::post('store','Admin\CategoryController@store')->name('admin.category.store');
         Route::get('hot/{id}','Admin\CategoryController@hot')->name('admin.category.hot');
         Route::get('edit/{id}','Admin\CategoryController@edit')->name('admin.category.edit');

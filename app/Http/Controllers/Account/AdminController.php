@@ -19,4 +19,8 @@ class AdminController extends Controller
         else
             return redirect()->route('admin.account.index')->with('info', 'Login is not successful!');
     }
+    public function getLogoutAdmin(){
+        \Auth::Logout();
+        return \redirect()->route('admin.account.index');
+    }
 }

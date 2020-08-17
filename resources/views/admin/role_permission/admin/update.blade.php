@@ -43,8 +43,8 @@
 			                 
 			                </div>
 			                <div class="form-group">
-			                  <label >Password <span class="text-danger">(*)</span></label>
-			                  <input type="password" name="password" class="form-control" value="{{$admin->password}}"  placeholder="********">
+							  <label >Password <span class="text-danger">(*)</span></label>
+			                  <input type="password" name="password" class="form-control" value=""  placeholder="********">
 			                
 			                </div>
 			         		<div class="form-group">
